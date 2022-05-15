@@ -1,0 +1,21 @@
+{
+  "extends": ["tslint-config-prettier"],
+  "exclude": ["**/dist/**", "**/node_modules/**", "**/coverage/**"],
+  "linterOptions": {
+    "exclude": ["**/decorators/**", "**/constants/**"]
+  },
+  "jsRules": {},
+  "rules": {
+    "no-internal-module": false,
+    "typedef-whitespace": false,
+    "variable-name": [true, "check-format", "allow-leading-underscore"],
+    "no-console": false,
+    "no-reference": false,
+    "no-namespace": false,
+    "max-line-length": [true, 140],
+    "no-bitwise": false,
+    "align": true,
+    "arrow-return-shorthand": true,
+    "no-var-requires": false
+  }
+}
