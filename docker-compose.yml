@@ -15,6 +15,9 @@ services:
     image: mariadb
     environment:
       MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: shippifyChallengeDB
+      MARIADB_USER: shippifyChallengeUser
+      MARIADB_PASSWORD: shippifyChallengePass
     ports:
       - "3306:3306"
     volumes:
