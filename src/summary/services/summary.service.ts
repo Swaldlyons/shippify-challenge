@@ -16,6 +16,19 @@ export class SummaryService {
     return data;
   }
 
+  async findAll(): Promise<Summary[]> {
+    return await this.summaryRepository.find();
+  }
+
+  async findOne(id: number): Promise<Summary> {
+    return await this.summaryRepository.findOne({ id });
+  }
+
+  async update(id: number, data: Summary): Promise<Summary> {
+    await this.summaryRepository.update({ id }, data);
+    return data;
+  }
+
   async sumAmountBetweenDates({ fromDate, toDate }: DatesDto) {
     return await this.summaryRepository
       .createQueryBuilder()
@@ -29,5 +42,9 @@ export class SummaryService {
 
   async deleteAll() {
     return this.summaryRepository.delete({});
+  }
+
+  async remove(id: number) {
+    return this.summaryRepository.delete({ id });
   }
 }

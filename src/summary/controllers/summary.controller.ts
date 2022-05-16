@@ -1,6 +1,18 @@
-import { Controller, Get, Query } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Query,
+} from "@nestjs/common";
 import { SummaryService } from "../services/summary.service";
 import { DatesDto } from "../dto/dates.dto";
+import { CreateSummaryDto } from "../dto/create-summary.dto";
+import { Summary } from "../entities/summary.entity";
+import { UpdateSummaryDto } from "../dto/update-summary.dto";
 
 const PRECISION = 2;
 
@@ -8,8 +20,8 @@ const PRECISION = 2;
 export class SummaryController {
   constructor(private summaryService: SummaryService) {}
 
-  @Get()
-  async create(@Query() dates: DatesDto) {
+  @Get("report")
+  async report(@Query() dates: DatesDto) {
     const result = await this.summaryService.sumAmountBetweenDates(dates);
     const basePrice: number = result.amount;
     const insurance: number = this.insurance(basePrice);
@@ -30,6 +42,31 @@ export class SummaryController {
       IVA,
       total,
     };
+  }
+
+  @Post()
+  create(@Body() createSummaryDto: CreateSummaryDto) {
+    return this.summaryService.insert(<Summary>createSummaryDto);
+  }
+
+  @Get()
+  findAll() {
+    return this.summaryService.findAll();
+  }
+
+  @Get(":id")
+  findOne(@Param("id") id: string) {
+    return this.summaryService.findOne(+id);
+  }
+
+  @Patch(":id")
+  update(@Param("id") id: string, @Body() updateSummaryDto: UpdateSummaryDto) {
+    return this.summaryService.update(+id, <Summary>updateSummaryDto);
+  }
+
+  @Delete(":id")
+  remove(@Param("id") id: string) {
+    return this.summaryService.remove(+id);
   }
 
   private precision = (number, precision): number => {
