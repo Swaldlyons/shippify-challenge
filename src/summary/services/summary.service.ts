@@ -10,7 +10,12 @@ export class SummaryService {
     private summaryRepository: Repository<Summary>
   ) {}
 
-  async create(data: Summary): Promise<Summary> {
-    return this.summaryRepository.create(data);
+  async insert(data: Summary | Summary[]): Promise<Summary | Summary[]> {
+    await this.summaryRepository.insert(data);
+    return data;
+  }
+
+  async deleteAll() {
+    return this.summaryRepository.delete({});
   }
 }

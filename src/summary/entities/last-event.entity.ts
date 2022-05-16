@@ -1,17 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "typeorm";
-import { Type } from "./type.entity";
-import { Sucursal } from "./sucursal.entity";
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 @Entity()
 export class LastEvent {
   @PrimaryGeneratedColumn("increment")
   id: number;
 
-  @OneToOne(() => Type)
-  @JoinColumn({ name: "type" })
-  type: Type;
+  @Column({ nullable: false, type: "int" })
+  type: number;
 
-  @OneToOne(() => Sucursal)
-  @JoinColumn({ name: "sucursal" })
-  sucursal: Sucursal;
+  @Column({ nullable: false, type: "int" })
+  sucursal: number;
 }

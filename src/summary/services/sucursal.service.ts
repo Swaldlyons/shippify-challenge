@@ -10,7 +10,16 @@ export class SucursalService {
     private sucursalRepository: Repository<Sucursal>
   ) {}
 
-  async create(data: Sucursal): Promise<Sucursal> {
-    return this.sucursalRepository.create(data);
+  async insert(data: Sucursal | Sucursal[]): Promise<Sucursal | Sucursal[]> {
+    await this.sucursalRepository.insert(data);
+    return data;
+  }
+
+  async findBySucursal(sucursal: string): Promise<Sucursal> {
+    return await this.sucursalRepository.findOne({ sucursal });
+  }
+
+  async deleteAll() {
+    return this.sucursalRepository.delete({});
   }
 }

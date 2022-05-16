@@ -1,19 +1,19 @@
 import { Test, TestingModule } from "@nestjs/testing";
-import { SummaryController } from "./summary.controller";
-import { SummaryService } from "./services/summary.service";
+import { MockDataController } from "./mock-data.controller";
+import { SummaryService } from "../services/summary.service";
 import { NestjsFormDataModule } from "nestjs-form-data";
 
-describe("SummaryController", () => {
-  let controller: SummaryController;
+describe("MockDataController", () => {
+  let controller: MockDataController;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [NestjsFormDataModule],
-      controllers: [SummaryController],
+      controllers: [MockDataController],
       providers: [SummaryService],
     }).compile();
 
-    controller = module.get<SummaryController>(SummaryController);
+    controller = module.get<MockDataController>(MockDataController);
   });
 
   it("should be defined", () => {

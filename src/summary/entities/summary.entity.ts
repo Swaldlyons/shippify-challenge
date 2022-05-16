@@ -1,11 +1,4 @@
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  OneToOne,
-  JoinColumn,
-} from "typeorm";
-import { LastEvent } from "./last-event.entity";
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Summary {
@@ -18,7 +11,6 @@ export class Summary {
   @Column({ nullable: false, type: "double" })
   amount: number;
 
-  @OneToOne(() => LastEvent)
-  @JoinColumn({ name: "lastEvent" })
-  lastEvent: LastEvent;
+  @Column({ nullable: false, type: "int" })
+  lastEvent: number;
 }

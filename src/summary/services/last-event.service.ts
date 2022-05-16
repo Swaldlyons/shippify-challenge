@@ -10,7 +10,18 @@ export class LastEventService {
     private lastEventRepository: Repository<LastEvent>
   ) {}
 
-  async create(data: LastEvent): Promise<LastEvent> {
-    return this.lastEventRepository.create(data);
+  async insert(
+    data: LastEvent | LastEvent[]
+  ): Promise<LastEvent | LastEvent[]> {
+    await this.lastEventRepository.insert(data);
+    return data;
+  }
+
+  async findByTypeAndSucursal([type, sucursal]: number[]): Promise<LastEvent> {
+    return await this.lastEventRepository.findOne({ type, sucursal });
+  }
+
+  async deleteAll() {
+    return this.lastEventRepository.delete({});
   }
 }

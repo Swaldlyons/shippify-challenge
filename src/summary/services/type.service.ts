@@ -10,7 +10,16 @@ export class TypeService {
     private typeRepository: Repository<Type>
   ) {}
 
-  async create(data: Type): Promise<Type> {
-    return this.typeRepository.create(data);
+  async insert(data: Type | Type[]): Promise<Type | Type[]> {
+    await this.typeRepository.insert(data);
+    return data;
+  }
+
+  async findByType(type: string): Promise<Type> {
+    return await this.typeRepository.findOne({ type });
+  }
+
+  async deleteAll() {
+    return this.typeRepository.delete({});
   }
 }
