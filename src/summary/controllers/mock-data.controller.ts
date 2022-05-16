@@ -8,13 +8,13 @@ import {
 import { FormDataRequest } from "nestjs-form-data";
 import { PayloadTestDto } from "../dto/payload-test.dto";
 import { SummaryService } from "../services/summary.service";
-import { TypeService } from "../services/type.service";
+import { TypesService } from "../../types/services/types.service";
 import { SucursalService } from "../services/sucursal.service";
 import { LastEventService } from "../services/last-event.service";
 import { SummaryInterface } from "../../interfaces/SummaryInterface";
 import { LastEventInterface } from "../../interfaces/LastEventInterface";
 import { Sucursal } from "../entities/sucursal.entity";
-import { Type } from "../entities/type.entity";
+import { Type } from "../../types/entities/type.entity";
 import { LastEvent } from "../entities/last-event.entity";
 import { Summary } from "../entities/summary.entity";
 
@@ -22,7 +22,7 @@ import { Summary } from "../entities/summary.entity";
 export class MockDataController {
   constructor(
     private summaryService: SummaryService,
-    private typeService: TypeService,
+    private typeService: TypesService,
     private sucursalService: SucursalService,
     private lastEventService: LastEventService
   ) {}

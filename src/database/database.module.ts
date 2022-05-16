@@ -5,7 +5,7 @@ import config from "../config";
 import { LastEvent } from "../summary/entities/last-event.entity";
 import { Sucursal } from "../summary/entities/sucursal.entity";
 import { Summary } from "../summary/entities/summary.entity";
-import { Type } from "../summary/entities/type.entity";
+import { Type } from "../types/entities/type.entity";
 
 @Global()
 @Module({

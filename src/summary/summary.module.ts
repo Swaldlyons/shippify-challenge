@@ -6,10 +6,10 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { Summary } from "./entities/summary.entity";
 import { LastEvent } from "./entities/last-event.entity";
 import { Sucursal } from "./entities/sucursal.entity";
-import { Type } from "./entities/type.entity";
+import { Type } from "../types/entities/type.entity";
 import { LastEventService } from "./services/last-event.service";
 import { SucursalService } from "./services/sucursal.service";
-import { TypeService } from "./services/type.service";
+import { TypesService } from "../types/services/types.service";
 import { SummaryController } from "./controllers/summary.controller";
 
 @Module({
@@ -18,6 +18,6 @@ import { SummaryController } from "./controllers/summary.controller";
     TypeOrmModule.forFeature([LastEvent, Sucursal, Summary, Type]),
   ],
   controllers: [MockDataController, SummaryController],
-  providers: [LastEventService, SucursalService, SummaryService, TypeService],
+  providers: [LastEventService, SucursalService, SummaryService, TypesService],
 })
 export class SummaryModule {}
