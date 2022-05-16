@@ -10,13 +10,14 @@ import { Type } from "./entities/type.entity";
 import { LastEventService } from "./services/last-event.service";
 import { SucursalService } from "./services/sucursal.service";
 import { TypeService } from "./services/type.service";
+import { SummaryController } from "./controllers/summary.controller";
 
 @Module({
   imports: [
     NestjsFormDataModule,
     TypeOrmModule.forFeature([LastEvent, Sucursal, Summary, Type]),
   ],
-  controllers: [MockDataController],
+  controllers: [MockDataController, SummaryController],
   providers: [LastEventService, SucursalService, SummaryService, TypeService],
 })
 export class SummaryModule {}

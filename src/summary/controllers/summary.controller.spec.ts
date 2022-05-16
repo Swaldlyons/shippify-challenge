@@ -1,13 +1,15 @@
 import { Test, TestingModule } from "@nestjs/testing";
-import { SummaryService } from "./summary.service";
+import { SummaryService } from "../services/summary.service";
+import { SummaryController } from "./summary.controller";
 import { getRepositoryToken } from "@nestjs/typeorm";
 import { Summary } from "../entities/summary.entity";
 
-describe("SummaryService", () => {
-  let service: SummaryService;
+describe("SummaryController", () => {
+  let controller: SummaryController;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
+      controllers: [SummaryController],
       providers: [
         SummaryService,
         {
@@ -17,10 +19,10 @@ describe("SummaryService", () => {
       ],
     }).compile();
 
-    service = module.get<SummaryService>(SummaryService);
+    controller = module.get<SummaryController>(SummaryController);
   });
 
   it("should be defined", () => {
-    expect(service).toBeDefined();
+    expect(controller).toBeDefined();
   });
 });
