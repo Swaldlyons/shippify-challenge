@@ -4,6 +4,7 @@ import { AppService } from "./app.service";
 import { DatabaseModule } from "./database/database.module";
 import { ConfigModule } from "@nestjs/config";
 import { environments } from "./enviroments";
+import { SummaryModule } from "./summary/summary.module";
 import config from "./config";
 
 @Module({
@@ -14,6 +15,7 @@ import config from "./config";
       load: [config],
       isGlobal: true,
     }),
+    SummaryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
