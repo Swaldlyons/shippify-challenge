@@ -10,12 +10,12 @@ import { PayloadTestDto } from "../dto/payload-test.dto";
 import { SummaryService } from "../services/summary.service";
 import { TypesService } from "../../types/services/types.service";
 import { SucursalesService } from "../../sucursales/services/sucursales.service";
-import { LastEventService } from "../services/last-event.service";
+import { LastEventsService } from "../../last-events/services/last-events.service";
 import { SummaryInterface } from "../../interfaces/SummaryInterface";
 import { LastEventInterface } from "../../interfaces/LastEventInterface";
 import { Sucursal } from "../../sucursales/entities/sucursal.entity";
 import { Type } from "../../types/entities/type.entity";
-import { LastEvent } from "../entities/last-event.entity";
+import { LastEvent } from "../../last-events/entities/last-event.entity";
 import { Summary } from "../entities/summary.entity";
 
 @Controller("mockdata")
@@ -24,7 +24,7 @@ export class MockDataController {
     private summaryService: SummaryService,
     private typeService: TypesService,
     private sucursalService: SucursalesService,
-    private lastEventService: LastEventService
+    private LastEventsService: LastEventsService
   ) {}
 
   @Post("load")
@@ -47,7 +47,7 @@ export class MockDataController {
 
   private async deleteMockData(): Promise<void> {
     await this.summaryService.deleteAll();
-    await this.lastEventService.deleteAll();
+    await this.LastEventsService.deleteAll();
     await Promise.all([
       this.typeService.deleteAll(),
       this.sucursalService.deleteAll(),
@@ -118,7 +118,7 @@ export class MockDataController {
       .catch((e) => {
         throw new HttpException(e, HttpStatus.BAD_REQUEST);
       });
-    return await this.lastEventService.insert(lastEventResult);
+    return await this.LastEventsService.insert(lastEventResult);
   }
 
   private async findIdsMockTypeAndSucursal([
@@ -145,6 +145,6 @@ export class MockDataController {
     type,
     sucursal,
   ]: number[]): Promise<LastEvent> {
-    return await this.lastEventService.findByTypeAndSucursal([type, sucursal]);
+    return await this.LastEventsService.findByTypeAndSucursal([type, sucursal]);
   }
 }

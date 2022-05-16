@@ -2,7 +2,7 @@ import { Global, Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { ConfigType } from "@nestjs/config";
 import config from "../config";
-import { LastEvent } from "../summary/entities/last-event.entity";
+import { LastEvent } from "../last-events/entities/last-event.entity";
 import { Sucursal } from "../sucursales/entities/sucursal.entity";
 import { Summary } from "../summary/entities/summary.entity";
 import { Type } from "../types/entities/type.entity";

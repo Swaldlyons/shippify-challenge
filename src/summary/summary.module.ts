@@ -4,10 +4,10 @@ import { MockDataController } from "./controllers/mock-data.controller";
 import { NestjsFormDataModule } from "nestjs-form-data";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { Summary } from "./entities/summary.entity";
-import { LastEvent } from "./entities/last-event.entity";
+import { LastEvent } from "../last-events/entities/last-event.entity";
 import { Sucursal } from "../sucursales/entities/sucursal.entity";
 import { Type } from "../types/entities/type.entity";
-import { LastEventService } from "./services/last-event.service";
+import { LastEventsService } from "../last-events/services/last-events.service";
 import { SucursalesService } from "../sucursales/services/sucursales.service";
 import { TypesService } from "../types/services/types.service";
 import { SummaryController } from "./controllers/summary.controller";
@@ -19,7 +19,7 @@ import { SummaryController } from "./controllers/summary.controller";
   ],
   controllers: [MockDataController, SummaryController],
   providers: [
-    LastEventService,
+    LastEventsService,
     SucursalesService,
     SummaryService,
     TypesService,

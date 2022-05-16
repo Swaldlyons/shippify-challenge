@@ -6,8 +6,8 @@ import { getRepositoryToken } from "@nestjs/typeorm";
 import { Summary } from "../entities/summary.entity";
 import { TypesService } from "../../types/services/types.service";
 import { SucursalesService } from "../../sucursales/services/sucursales.service";
-import { LastEventService } from "../services/last-event.service";
-import { LastEvent } from "../entities/last-event.entity";
+import { LastEventsService } from "../../last-events/services/last-events.service";
+import { LastEvent } from "../../last-events/entities/last-event.entity";
 import { Sucursal } from "../../sucursales/entities/sucursal.entity";
 import { Type } from "../../types/entities/type.entity";
 
@@ -19,7 +19,7 @@ describe("MockDataController", () => {
       imports: [NestjsFormDataModule],
       controllers: [MockDataController],
       providers: [
-        LastEventService,
+        LastEventsService,
         SucursalesService,
         SummaryService,
         TypesService,

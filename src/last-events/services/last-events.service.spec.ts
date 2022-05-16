@@ -1,15 +1,15 @@
 import { Test, TestingModule } from "@nestjs/testing";
-import { LastEventService } from "./last-event.service";
+import { LastEventsService } from "./last-events.service";
 import { getRepositoryToken } from "@nestjs/typeorm";
 import { LastEvent } from "../entities/last-event.entity";
 
-describe("LastEventService", () => {
-  let service: LastEventService;
+describe("LastEventsService", () => {
+  let service: LastEventsService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        LastEventService,
+        LastEventsService,
         {
           provide: getRepositoryToken(LastEvent),
           useValue: LastEvent,
@@ -17,7 +17,7 @@ describe("LastEventService", () => {
       ],
     }).compile();
 
-    service = module.get<LastEventService>(LastEventService);
+    service = module.get<LastEventsService>(LastEventsService);
   });
 
   it("should be defined", () => {

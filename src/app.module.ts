@@ -7,6 +7,7 @@ import { environments } from "./enviroments";
 import { SummaryModule } from "./summary/summary.module";
 import { TypesModule } from "./types/types.module";
 import { SucursalesModule } from "./sucursales/sucursales.module";
+import { LastEventsModule } from "./last-events/last-events.module";
 import config from "./config";
 
 @Module({
@@ -20,6 +21,7 @@ import config from "./config";
     SummaryModule,
     TypesModule,
     SucursalesModule,
+    LastEventsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
