@@ -6,6 +6,7 @@ import { ConfigModule } from "@nestjs/config";
 import { environments } from "./enviroments";
 import { SummaryModule } from "./summary/summary.module";
 import { TypesModule } from "./types/types.module";
+import { SucursalesModule } from "./sucursales/sucursales.module";
 import config from "./config";
 
 @Module({
@@ -18,6 +19,7 @@ import config from "./config";
     }),
     SummaryModule,
     TypesModule,
+    SucursalesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

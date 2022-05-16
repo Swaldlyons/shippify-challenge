@@ -4,7 +4,7 @@ import { Repository } from "typeorm";
 import { Sucursal } from "../entities/sucursal.entity";
 
 @Injectable()
-export class SucursalService {
+export class SucursalesService {
   constructor(
     @InjectRepository(Sucursal)
     private sucursalRepository: Repository<Sucursal>
@@ -15,11 +15,28 @@ export class SucursalService {
     return data;
   }
 
+  async findAll(): Promise<Sucursal[]> {
+    return await this.sucursalRepository.find();
+  }
+
+  async findOne(id: number): Promise<Sucursal> {
+    return await this.sucursalRepository.findOne({ id });
+  }
+
+  async update(id: number, data: Sucursal): Promise<Sucursal> {
+    await this.sucursalRepository.update({ id }, data);
+    return data;
+  }
+
   async findBySucursal(sucursal: string): Promise<Sucursal> {
     return await this.sucursalRepository.findOne({ sucursal });
   }
 
   async deleteAll() {
     return this.sucursalRepository.delete({});
+  }
+
+  async remove(id: number) {
+    return this.sucursalRepository.delete({ id });
   }
 }

@@ -5,10 +5,10 @@ import { NestjsFormDataModule } from "nestjs-form-data";
 import { getRepositoryToken } from "@nestjs/typeorm";
 import { Summary } from "../entities/summary.entity";
 import { TypesService } from "../../types/services/types.service";
-import { SucursalService } from "../services/sucursal.service";
+import { SucursalesService } from "../../sucursales/services/sucursales.service";
 import { LastEventService } from "../services/last-event.service";
 import { LastEvent } from "../entities/last-event.entity";
-import { Sucursal } from "../entities/sucursal.entity";
+import { Sucursal } from "../../sucursales/entities/sucursal.entity";
 import { Type } from "../../types/entities/type.entity";
 
 describe("MockDataController", () => {
@@ -20,7 +20,7 @@ describe("MockDataController", () => {
       controllers: [MockDataController],
       providers: [
         LastEventService,
-        SucursalService,
+        SucursalesService,
         SummaryService,
         TypesService,
         {

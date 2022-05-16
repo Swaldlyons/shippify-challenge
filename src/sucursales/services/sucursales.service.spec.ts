@@ -1,15 +1,15 @@
 import { Test, TestingModule } from "@nestjs/testing";
-import { SucursalService } from "./sucursal.service";
+import { SucursalesService } from "./sucursales.service";
 import { getRepositoryToken } from "@nestjs/typeorm";
 import { Sucursal } from "../entities/sucursal.entity";
 
-describe("SucursalService", () => {
-  let service: SucursalService;
+describe("SucursalesService", () => {
+  let service: SucursalesService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        SucursalService,
+        SucursalesService,
         {
           provide: getRepositoryToken(Sucursal),
           useValue: Sucursal,
@@ -17,7 +17,7 @@ describe("SucursalService", () => {
       ],
     }).compile();
 
-    service = module.get<SucursalService>(SucursalService);
+    service = module.get<SucursalesService>(SucursalesService);
   });
 
   it("should be defined", () => {

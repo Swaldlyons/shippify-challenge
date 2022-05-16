@@ -3,7 +3,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { ConfigType } from "@nestjs/config";
 import config from "../config";
 import { LastEvent } from "../summary/entities/last-event.entity";
-import { Sucursal } from "../summary/entities/sucursal.entity";
+import { Sucursal } from "../sucursales/entities/sucursal.entity";
 import { Summary } from "../summary/entities/summary.entity";
 import { Type } from "../types/entities/type.entity";
 
